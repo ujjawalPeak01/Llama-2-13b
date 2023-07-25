@@ -1,5 +1,6 @@
 build:
   system_packages:
+    - "libssl-dev"
   python_packages:
     - "accelerate==0.21.0"
     - "bitsandbytes==0.40.2"
