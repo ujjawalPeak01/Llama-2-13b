@@ -61,7 +61,7 @@ class InferlessPythonModel:
 
 
         if torch.cuda.is_available():
-            config = AutoConfig.from_pretrained(model_id)
+            config = AutoConfig.from_pretrained(model_id, use_auth_token='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')
             config.pretraining_tp = 1
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_id,
