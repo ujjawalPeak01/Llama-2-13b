@@ -57,11 +57,11 @@ class InferlessPythonModel:
 
 
     def initialize(self):
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id, use_auth_token='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')
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id, use_auth_token='<your_token>')
 
 
         if torch.cuda.is_available():
-            config = AutoConfig.from_pretrained(model_id, use_auth_token='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')
+            config = AutoConfig.from_pretrained(model_id, use_auth_token='<your_token>')
             config.pretraining_tp = 1
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_id,
@@ -69,7 +69,7 @@ class InferlessPythonModel:
                 torch_dtype=torch.float16,
                 device_map='auto',
                 load_in_4bit=True,
-                use_auth_token='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'
+                use_auth_token='<your_token>'
             )
         else:
             self.model = None
